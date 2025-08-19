@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Admin-Dashboard-AmazonAffiliates-GP/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+    <script type="module" crossorigin src="/Admin-Dashboard-AmazonAffiliates-GP/assets/index-DuhxuNZP.js"></script>
+    <link rel="stylesheet" crossorigin href="/Admin-Dashboard-AmazonAffiliates-GP/assets/index-CfeaIxgp.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // Si no hay hash en la URL, forzar redirección.
+      // Si ya hay token en localStorage, ir al dashboard; si no, al login.
+      const ensureInitialHash = () => {
+        if (!location.hash || location.hash === '#') {
+          const token = localStorage.getItem('token');
+          const target = token ? '/' : '/login';
+          location.replace(location.pathname + (location.pathname.endsWith('/') ? '' : '/') + '#' + target);
+        }
+      };
+      // Ejecutar inmediatamente y también proteger contra navegadores que limpien el hash antes de cargar el app.
+      try {
+        ensureInitialHash();
+      } catch (e) {
+        // si localStorage no está disponible por alguna razón, redirigir al login por defecto
+        location.replace(location.pathname + (location.pathname.endsWith('/') ? '' : '/') + '#' + '/login');
+      }
+    </script>
+  </body>
+</html>

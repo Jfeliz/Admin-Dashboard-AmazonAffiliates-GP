@@ -3,6 +3,6 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/github-pages-admin-dashboard/',
+  base: '/Admin-Dashboard-AmazonAffiliates-GP/',
   plugins: [vue()],
 })
